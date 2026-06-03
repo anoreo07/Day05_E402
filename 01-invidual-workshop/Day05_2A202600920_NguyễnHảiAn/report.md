@@ -1,4 +1,4 @@
-# BÁO CÁO WORKSHOP: MỔ APP AI THẬT — NEO BOT
+# BÁO CÁO: MỔ APP AI THẬT — NEO BOT
 
 ## 1. Sản phẩm & Feature
 *   **Sản phẩm:** Vietnam Airlines — NEO (Chatbot).
@@ -10,8 +10,8 @@
 *   **Hậu quả:** User bị quá tải nhận thức (Cognitive Load), dễ đọc nhầm thông tin giữa các vùng/hạng vé.
 
 > <img src="resource/Screenshot01.png" width="400" />
-> *   **Câu hỏi:** "Giá cước gửi thú cưng là bao nhiêu?"
-> *   **Note:** Minh họa cho lỗi **"Wall of Text"**. AI không bóc tách dữ liệu mà trả về danh sách thô, bắt người dùng tự tra cứu vùng A, B, C...
+*   **Câu hỏi:** "Giá cước gửi thú cưng là bao nhiêu?"
+*   **Note:** Minh họa cho lỗi **"Wall of Text"**. AI không bóc tách dữ liệu mà trả về danh sách thô, bắt người dùng tự tra cứu vùng A, B, C...
 
 ---
 
@@ -19,7 +19,7 @@
 
 | Path | Câu hỏi thực hiện | Phân tích từ thực tế |
 |---|---|---|
-| **Happy** | "Mình muốn mang đàn Guitar dài 1m2 lên khoang máy bay..." | AI tìm đúng dữ liệu về nhạc cụ, nhưng trình bày kém (liệt kê cả Boeing, Airbus chung một chỗ).<br><br><img src="resource/Screenshot02.png" width="250" /> |
+| **Happy** | "Mình muốn mang đàn Guitar dài 1m2 lên khoang máy bay có được không?" | AI tìm đúng dữ liệu về nhạc cụ, nhưng trình bày kém (liệt kê cả Boeing, Airbus chung một chỗ).<br><br><img src="resource/Screenshot02.png" width="250" /> |
 | **Low-confidence** | "Hành lý của mình có được mang lên không?" | Câu hỏi rất mơ hồ. AI không hỏi lại (Clarify) mà tự đoán rồi liệt kê cả "thú cưng" lẫn "hành lý xách tay". Đây là điểm gãy nặng nhất.<br><br><img src="resource/Screenshot04.png" width="250" /> |
 | **Failure** | (Quan sát chung) | Không có nút "Báo lỗi" hay "Tôi không tìm thấy ý mình cần". User chỉ có thể thoát flow. |
 | **Correction** | "Thế còn mang **nó** lên ghế ngồi cùng thì sao?" | **Điểm sáng:** AI nhận diện được đại từ "nó" thay thế cho "đàn Guitar" ở câu trước. Lớp Context Memory làm việc tốt.<br><br><img src="resource/Screenshot03.png" width="250" /> |
@@ -27,7 +27,6 @@
 ---
 
 ## 4. Viết Finding thành Quyết định Product (Finding → Decision)
-*Dựa trên template Slide 34*
 
 **Finding:** Khi user hỏi các thông tin có nhiều điều kiện ràng buộc (vùng địa lý, kích thước tàu bay), AI trả về toàn bộ tài liệu thô thay vì một câu trả lời đã tổng hợp.
 *   **Lỗi thuộc layer:** Data/Tool (Truy xuất thừa) + UX Recovery (Thiếu tương tác lọc thông tin).
@@ -40,14 +39,14 @@
 
 ## 5. Sketch As-is / To-be
 
-### **Cột As-is (Dựa trên Screenshot 1 & 4):**
+### **Cột As-is:**
 1.  **User:** Hỏi câu hỏi mơ hồ hoặc câu hỏi về giá.
 2.  **NEO:** Đổ ra 20 dòng text chi chít số.
 3.  **Điểm gãy:** User kẹt ở việc phải cuộn màn hình và tự đối chiếu vùng địa lý để biết mình phải trả bao nhiêu tiền.
 
 <img src="resource/as:is.png" width="450" />
 
-### **Cột To-be (Đề xuất sửa đổi):**
+### **Cột To-be:**
 1.  **User:** "Hành lý của mình có được mang lên không?"
 2.  **NEO (Clarification):** Không đoán mò. Hiện 2 nút: `[Hành lý xách tay]` / `[Hành lý đặc biệt (Thú cưng, Nhạc cụ...)]`.
 3.  **User chọn [Hành lý đặc biệt].**
